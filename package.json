@@ -3,9 +3,13 @@
   "version": "2.0.0",
   "description": "利用 koa 实现 react 开发 server",
   "scripts": {
-    "start": "pm2 start server.prod.js",
-    "watch": "nodemon server.dev.js",
-    "build": "webpack --config ./web/webpack.config.prod.js"
+    "start": "pm2 start build/server.js",
+    "watch": "nodemon -r babel-register server.dev.js",
+    "build": "npm run build-web && npm run build-server && npm run build-static && npm run build-service",
+    "build-web": "webpack --config ./web/webpack.config.prod.js",
+    "build-server": "babel server -d build/api",
+    "build-static": "babel static -d build/static -D",
+    "build-service": "babel ./server.prod.js -o build/server.js"
   },
   "engines": {
     "node": "6.9.1",

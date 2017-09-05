@@ -1,11 +1,12 @@
-const Koa = require('koa');
-const api = require('./api/middleware');
-const Static = require('./static/middleware');
-const Web = require('koa-static');
+import Koa from 'koa';
+import Web from 'koa-static';
+
+import api from './api/middleware';
+import Static from './static/middleware';
 
 const app = new Koa();
 app.use(Static());
-app.use(Web('www'));
+app.use(Web('build/www'));
 app.use(api.routes(), api.allowedMethods());
 
 app.listen(8400);

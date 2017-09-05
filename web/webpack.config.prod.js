@@ -7,7 +7,7 @@ const path = require('path');
 module.exports = {
   entry: './web/index.js',
   output: {
-    path: path.resolve('www'),
+    path: path.resolve('build/www'),
     publicPath: '/',
     filename: 'bundle.min.js?[chunkhash]',
     chunkFilename: '[chunkhash].js',
@@ -27,7 +27,7 @@ module.exports = {
         },
       },
     }),
-    new CleanWebpackPlugin(['www'], { root: path.resolve() }),
+    new CleanWebpackPlugin(['build'], { root: path.resolve() }),
     new webpack.DefinePlugin({
       'process.env': {
           // This can reduce react lib size and disable some dev feactures like props validation

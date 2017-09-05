@@ -1,6 +1,7 @@
-const webpack = require('webpack');
-const webpackMiddleware = require('koa-webpack-dev-middleware');
-const config = require('./webpack.config.dev');
+import webpackMiddleware from 'koa-webpack-dev-middleware';
+import webpack from 'webpack';
+
+import config from './webpack.config.dev';
 
 const serverConfig = {
   publicPath: config.output.publicPath,
@@ -12,6 +13,6 @@ const serverConfig = {
   },
 };
 
-module.exports = () => {
+export default () => {
   return webpackMiddleware(webpack(config), serverConfig);
 };
