@@ -1,9 +1,11 @@
 {
   "name": "react-server-render",
   "version": "2.0.0",
-  "description": "利用 koa 实现 react + redux 的 server render",
+  "description": "利用 koa 实现 react 开发 server",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "pm2 start server.prod.js",
+    "watch": "nodemon server.dev.js",
+    "build": "webpack --config ./web/webpack.config.prod.js"
   },
   "engines": {
     "node": "6.9.1",
@@ -28,6 +30,7 @@
     "koa-bodyparser": "4.2.0",
     "koa-router": "7.1.1",
     "koa-static": "3.0.0",
+    "pm2": "^2.6.1",
     "react": "15.4.2",
     "react-dom": "15.4.2"
   },
@@ -44,6 +47,7 @@
     "babel-preset-react": "6.23.0",
     "babel-preset-stage-0": "6.22.0",
     "babel-register": "6.24.1",
+    "clean-webpack-plugin": "^0.1.16",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",
     "eslint-plugin-babel": "4.1.1",
