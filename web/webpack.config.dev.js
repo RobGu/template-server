@@ -39,7 +39,7 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       title: 'React Koa',
-      template: 'template.html',
+      template: 'web/template.html',
       inject: true,
     }),
   ],

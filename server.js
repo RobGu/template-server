@@ -1,10 +1,10 @@
 const Koa = require('koa');
-const file = require('koa-static');
 const Web = require('./web/middleware');
 const api = require('./api/middleware');
+const Static = require('./static/middleware');
 
 const app = new Koa();
-app.use(file('static'));
+app.use(Static());
 app.use(api.routes(), api.allowedMethods());
 app.use(Web());
 
