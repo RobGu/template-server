@@ -1,21 +1,21 @@
-import Router from 'koa-router'
+import Router from 'koa-router';
 
-const router = Router()
+const router = Router();
 
-router.get('/', async (ctx, next) => {
+router.get('/', async (ctx) => {
   await ctx.render('index', {
-    title: 'Hello Koa 2!'
-  })
-})
+    title: 'Hello Koa 2!',
+  });
+});
 
-router.get('/string', async (ctx, next) => {
-  ctx.body = 'koa2 string'
-})
+router.get('/string', async (ctx) => {
+  ctx.body = 'koa2 string';
+});
 
-router.get('/json', async (ctx, next) => {
+router.get('/json', async (ctx) => {
   ctx.body = {
-    title: 'koa2 json'
-  }
-})
+    title: 'koa2 json',
+  };
+});
 
-export default router
+export default router;

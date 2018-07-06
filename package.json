@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node scripts/www",
-    "dev": "nodemon -w src scripts/www",
+    "dev": "nodemon -w src -e js,jsx scripts/www",
     "prd": "pm2 start scripts/www --name template-koa"
   },
   "importSort": {
@@ -27,7 +27,7 @@
     "koa-react-view": "3.0.0",
     "koa-router": "7.4.0",
     "koa-static": "5.0.0",
-    "koa-swagger-decorator": "^1.3.0"
+    "koa-swagger-decorator": "1.4.6"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
