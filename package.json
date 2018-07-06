@@ -1,19 +1,11 @@
 {
-  "name": "react-koa",
-  "version": "2.0.0",
-  "description": "利用 koa 实现 react 开发 server",
+  "name": "template-koa",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "pm2 start build/server.js",
-    "watch": "nodemon -r babel-register server.dev.js",
-    "build": "npm run build-web && npm run build-server && npm run build-static && npm run build-service",
-    "build-web": "webpack --config ./web/webpack.config.prod.js",
-    "build-server": "babel server -d build/api",
-    "build-static": "babel static -d build/static -D",
-    "build-service": "babel ./server.prod.js -o build/server.js"
-  },
-  "engines": {
-    "node": "7.10.1",
-    "npm": "4.2.0"
+    "start": "node scripts/www",
+    "dev": "nodemon -w src scripts/www",
+    "prd": "pm2 start scripts/www --name template-koa"
   },
   "importSort": {
     ".js,.css,.scss": {
@@ -23,46 +15,35 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tech-demo/react-koa.git"
+    "url": "https://github.com/tech-demo/template-koa.git"
   },
-  "keywords": [
-    "react",
-    "koa"
-  ],
   "dependencies": {
-    "koa": "2.3.0",
-    "koa-bodyparser": "4.2.0",
-    "koa-router": "7.2.1",
-    "koa-static": "4.0.1",
-    "pm2": "2.6.1",
-    "react": "15.6.1",
-    "react-dom": "15.6.1"
+    "debug": "3.1.0",
+    "koa": "2.5.1",
+    "koa-bodyparser": "4.2.1",
+    "koa-json": "2.0.2",
+    "koa-logger": "3.2.0",
+    "koa-onerror": "4.0.0",
+    "koa-react-view": "3.0.0",
+    "koa-router": "7.4.0",
+    "koa-static": "5.0.0"
   },
   "devDependencies": {
-    "autoprefixer": "7.1.3",
     "babel-cli": "6.26.0",
-    "babel-core": "6.26.0",
-    "babel-eslint": "7.2.3",
-    "babel-loader": "7.1.2",
-    "babel-plugin-import": "1.4.0",
-    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-eslint": "8.2.5",
+    "babel-plugin-import": "1.8.0",
+    "babel-plugin-transform-decorators-legacy": "1.3.5",
     "babel-plugin-transform-runtime": "6.23.0",
-    "babel-preset-es2015": "6.24.1",
+    "babel-preset-env": "1.7.0",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
-    "babel-register": "6.26.0",
-    "clean-webpack-plugin": "0.1.16",
-    "eslint": "4.6.1",
-    "eslint-config-airbnb": "15.1.0",
-    "eslint-plugin-babel": "4.1.2",
-    "eslint-plugin-import": "2.7.0",
-    "eslint-plugin-jsx-a11y": "5.1.1",
-    "eslint-plugin-react": "7.3.0",
-    "html-webpack-plugin": "2.30.1",
-    "koa-logger": "3.0.1",
-    "koa-webpack-dev-middleware": "2.0.1",
-    "nodemon": "1.12.0",
-    "webpack": "3.5.5",
-    "webpack-stream": "4.0.0"
+    "eslint": "5.0.1",
+    "eslint-config-airbnb": "17.0.0",
+    "eslint-plugin-babel": "5.1.0",
+    "eslint-plugin-import": "2.13.0",
+    "eslint-plugin-jsx-a11y": "6.1.0",
+    "eslint-plugin-react": "7.10.0",
+    "koa-generator": "1.1.16",
+    "nodemon": "1.17.5"
   }
 }
