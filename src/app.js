@@ -8,9 +8,10 @@ import json from 'koa-json'
 import logger from 'koa-logger'
 import onerror from 'koa-onerror'
 import views from 'koa-react-view'
+import statics from 'koa-static'
 
-import index from './routes/index'
-import users from './routes/users'
+import api from './routes/api'
+import html from './routes/html'
 
 const app = new Koa()
 const debug = Debug('demo:server')
@@ -25,7 +26,7 @@ app.use(bodyparser({
 }))
 app.use(json());
 app.use(logger());
-app.use(require('koa-static')(__dirname + '/public'));
+app.use(statics(__dirname + '/public'));
 app.use(async (ctx, next) => {
   const start = new Date()
   await next()
@@ -38,8 +39,8 @@ views(app, {
 });
 
 // routes definition
-app.use(index.routes(), index.allowedMethods());
-app.use(users.routes(), users.allowedMethods());
+app.use(api.routes(), api.allowedMethods());
+app.use(html.routes(), html.allowedMethods());
 
 // error-handling
 app.on('error', (err, ctx) => {
